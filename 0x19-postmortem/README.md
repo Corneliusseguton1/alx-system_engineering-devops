@@ -1,40 +1,19 @@
-# 0x19. Postmortem
+## Summary
+On January 15, 2021, our web application experienced an outage that lasted for approximately 2 hours. The outage was caused by a server issue that resulted in the application being unavailable to users. The impact of the outage was significant, with many users unable to access critical functionality of the application during the outage.
 
-Any software system will eventually fail, and that failure can come stem from a wide range of possible factors: bugs, traffic spikes, security issues, hardware failures, natural disasters, human error… Failing is normal and failing is actually a great opportunity to learn and improve. Any great Software Engineer must learn from his/her mistakes to make sure that they won’t happen again. Failing is fine, but failing twice because of the same issue is not.
+## Timeline
+* 1:00 PM - A server issue is detected, causing the application to become unavailable to users.
+* 1:15 PM - The issue is escalated to the development team for investigation.
+* 1:30 PM - The development team determines that the issue is related to a hardware failure on one of the servers.
+* 1:45 PM - The team attempts to restore service by moving the application to another server, but encounters difficulties due to the complexity of the application.
+* 2:30 PM - The team successfully migrates the application to a new server and service is restored to users.
+* 3:00 PM - The team conducts a postmortem to analyze the incident and identify steps to prevent future occurrences.
 
+## Cause
+The root cause of the outage was a hardware failure on one of the servers that was hosting the application. Specifically, the hard drive failed, which caused the server to become unresponsive and the application to be unavailable to users.
 
-A postmortem is a tool widely used in the tech industry. After any outage, the team(s) in charge of the system will write a summary that has 2 main goals:
+## Impact
+The impact of the outage was significant, with many users unable to access critical functionality of the application during the outage. This resulted in frustration and inconvenience for users, as well as potential financial losses for the company.
 
-
-- To provide the rest of the company’s employees easy access to information detailing the cause of the outage. Often outages can have a huge impact on a company, so managers and executives have to understand what happened and how it will impact their work.
-- And to ensure that the root cause(s) of the outage has been discovered and that measures are taken to make sure it will be fixed.
-
-
-Using one of the web stack debugging project issue I have previously done or an outage I have personally faced, I am required to write a postmortem.
-
-## Requirements:
-
-- Issue Summary (that is often what executives will read) must contain:
-    - duration of the outage with start and end times (including timezone)
-    - what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-    - what was the root cause
-
-- Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
-    - when was the issue detected
-    - how was the issue detected (monitoring alert, an   engineer noticed something, a customer complained…)
-    - actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-    - misleading investigation/debugging paths that were taken
-    - which team/individuals was the incident escalated to
-    - how the incident was resolved
-
-- Root cause and resolution must contain:
-    - explain in detail what was causing the issue
-    - explain in detail how the issue was fixed
-
-- Corrective and preventative measures must contain:
-    - what are the things that can be improved/fixed (broadly speaking)
-    - a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
-- Be brief and straight to the point, between 400 to 600 words
-
-## Resources
-[Apiumhub](https://apiumhub.com/tech-blog-barcelona/software-development-project-postmortem/)
+## Mitigation
+To mitigate the impact of the outage, the development team worked quickly to migrate the application to a new server. However, the migration process was complicated by the complexity of the application, which made it difficult to move to a new server without encountering issues.
